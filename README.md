@@ -20,6 +20,9 @@ Node.js 版本 14.16.0 或以上 (可用 nvm 管理)
 # 安装依赖
 npm install
 
+# 解决版本依赖问题的安装依赖
+npm install --legacy-peer-deps
+
 # 运行前端，监听3000端口，浏览器访问 http://localhost:3000
 npm run dev
 ```
