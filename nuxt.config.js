@@ -67,51 +67,33 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   // Axios module configuration
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://api.study.solobit.cn' : 'http://localhost:3000',
-    proxy: false  // 修改这里，在生产环境中禁用代理
+    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+    baseURL: '/',
+    proxy: true,
   },
-  
-  // 仅在开发环境中使用代理
-  proxy: process.env.NODE_ENV === 'development' ? {
+  proxy: {
     '/api': {
-      target: 'https://api.study.solobit.cn',
+      target: 'http://127.0.0.1:8880', // 目标服务器
       changeOrigin: true,
     },
     '/view': {
-      target: 'https://api.study.solobit.cn',
+      target: 'http://127.0.0.1:8880', // 目标服务器
       changeOrigin: true,
     },
     '/uploads': {
-      target: 'https://api.study.solobit.cn',
+      target: 'http://127.0.0.1:8880', // 目标服务器
       changeOrigin: true,
     },
     '/download': {
-      target: 'https://api.study.solobit.cn',
+      target: 'http://127.0.0.1:8880', // 目标服务器
       changeOrigin: true,
     },
-  } : {},
+  },
   server: {
     port: 3000, // default: 3000
     host: '0.0.0.0', // default: localhost
   },
-  proxy: {
-    '/api': {
-      target: 'https://api.study.solobit.cn', // 目标服务器
-      changeOrigin: true,
-    },
-    '/view': {
-      target: 'https://api.study.solobit.cn', // 目标服务器
-      changeOrigin: true,
-    },
-    '/uploads': {
-      target: 'https://api.study.solobit.cn', // 目标服务器
-      changeOrigin: true,
-    },
-    '/download': {
-      target: 'https://api.study.solobit.cn', // 目标服务器
-      changeOrigin: true,
-    },
-  },
+  
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   // pwa: {
   //   manifest: {

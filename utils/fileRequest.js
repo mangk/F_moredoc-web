@@ -4,7 +4,7 @@ const cancelToken = axios.CancelToken // 取消请求
 window.uploadDocumentCancel = [] // 取消上传文件请求
 
 const fileService = axios.create({
-  baseURL: 'https://api.study.solobit.cn',
+  // baseURL: 'https://api.study.solobit.cn',
   timeout: 6000000, // 文件上传超时时间，100分钟
   headers: {
     'Content-Type': 'multipart/form-data',

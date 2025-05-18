@@ -3,7 +3,7 @@ import qs from 'qs'
 import store from '~/store/index'
 
 const service = axios.create({
-  baseURL: 'https://api.study.solobit.cn',
+  // baseURL: 'https://api.study.solobit.cn',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
